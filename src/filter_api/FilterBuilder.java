@@ -12,13 +12,18 @@ import filter_api.property.ExistsFilter;
 import filter_api.property.base.BasePropertyFilterFactory;
 import filter_api.property.other.RegexFilter;
 
+/**
+ * 
+ * @author Nicola
+ *
+ */
 public class FilterBuilder {
 	
 	// filterString
 	
 	public static Filter getFilter(JSONObject json) {
 		
-		FilterKey key = (FilterKey) json.get("key");
+		FilterKey key = FilterKey.valueOf((String) json.get("key"));
 		
 		if (key == FilterKey.AND || key == FilterKey.OR) {
 			
@@ -60,14 +65,19 @@ public class FilterBuilder {
 		
 		String value = (String) json.get("value");
 		
+		boolean strict = false;
+		if (json.containsKey("strict")) {
+			strict = (boolean) json.get("strict");
+		}
+		
 		if (key == FilterKey.LT || key == FilterKey.EQ || key == FilterKey.GT) {
 			
-			return BasePropertyFilterFactory.getFilter(property, key, value);
+			return BasePropertyFilterFactory.getFilter(property, key, value).setStrict(strict);
 		}
 		
 		if (key == FilterKey.REGEX) {
 			
-			return new RegexFilter(property, value);
+			return new RegexFilter(property, value).setStrict(strict);
 			
 		}
 		

@@ -8,7 +8,7 @@ import filter_api.property.PropertyFilter;
 
 public class RegexFilter extends PropertyFilter {
 	
-	private final Pattern pattern; 
+	private Pattern pattern; 
 
 	public RegexFilter (String property, Pattern pattern) {
 		super(property);
@@ -17,12 +17,31 @@ public class RegexFilter extends PropertyFilter {
 	
 	public RegexFilter (String property, String patternString) {
 		super(property);
-		this.pattern = Pattern.compile(patternString);
+		this.setPatternString(patternString);
 	}
 
-	public boolean doMatch(Map<String, String> resource) {
-		String name = resource.get(this.property);
-		Matcher matcher = this.pattern.matcher(name);
+	public boolean propertyMatches(Map<String, String> resource) {
+		String value = resource.get(this.property);
+		Matcher matcher = this.pattern.matcher(value.toLowerCase());
 		return matcher.find();
 	}
+
+	public Pattern getPattern() {
+		return pattern;
+	}
+
+	public RegexFilter setPattern(Pattern pattern) {
+		this.pattern = pattern;
+		
+		return this;
+	}
+	
+	
+	public RegexFilter setPatternString(String patternString) {
+		this.pattern = Pattern.compile(patternString, Pattern.CASE_INSENSITIVE);
+		
+		return this;
+	}
+	
+	
 }

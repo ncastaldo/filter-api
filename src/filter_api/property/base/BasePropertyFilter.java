@@ -3,12 +3,24 @@ package filter_api.property.base;
 import filter_api.property.PropertyFilter;
 
 public abstract class BasePropertyFilter extends PropertyFilter {
-	protected final String value;
+	protected String value;
 
 	public BasePropertyFilter(String property, String value) {
 		super(property);
 		this.value = value;
 	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public BasePropertyFilter setValue(String value) {
+		this.value = value;
+		
+		return this;
+	}
+	
+	
 }
 	
 

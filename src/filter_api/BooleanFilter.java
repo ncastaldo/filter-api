@@ -1,8 +1,12 @@
 package filter_api;
 
 import java.util.Map;
-import org.json.simple.JSONObject;
 
+/**
+ * 
+ * @author Nicola
+ *
+ */
 public class BooleanFilter implements Filter {
 	
 	private boolean value;
@@ -14,9 +18,15 @@ public class BooleanFilter implements Filter {
 	public boolean matches(Map<String, String> resource) {
 		return value;
 	}
-	
-	public void parse(JSONObject json) {
-		this.value = (boolean) json.get("value");
+
+	public boolean isValue() {
+		return value;
+	}
+
+	public BooleanFilter setValue(boolean value) {
+		this.value = value;
+		
+		return this;
 	}
 	
 }

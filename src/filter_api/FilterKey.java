@@ -1,5 +1,10 @@
 package filter_api;
 
+/**
+ * 
+ * @author Nicola
+ *
+ */
 public enum FilterKey {
 	BOOLEAN,
 	

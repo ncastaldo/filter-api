@@ -15,8 +15,10 @@ public abstract class MultiFilter implements Filter {
 		return filters;
 	}
 
-	public void setFilters(Filter[] filters) {
+	public MultiFilter setFilters(Filter[] filters) {
 		this.filters = filters;
+		
+		return this;
 	}
 
 }

@@ -9,9 +9,9 @@ public class EqualsFilter extends BasePropertyFilter {
 		super(property, value);
 	}
 
-	public boolean doMatch(Map<String, String> resource) {
+	public boolean propertyMatches(Map<String, String> resource) {
 		// exception management needed, or initial check
-		return resource.get(this.property).equals(this.value);
+		return resource.get(this.property).toLowerCase().equals(this.value.toLowerCase());
 	}
 	
 }

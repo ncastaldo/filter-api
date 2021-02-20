@@ -8,8 +8,8 @@ public class LowerFilter extends BasePropertyFilter {
 		super(property, value);
 	}
 
-	public boolean doMatch(Map<String, String> resource) {
-		return resource.get(this.property).compareTo(this.value) < 0;
+	public boolean propertyMatches(Map<String, String> resource) {
+		return resource.get(this.property).toLowerCase().compareTo(this.value.toLowerCase()) < 0;
 	}
 	
 }

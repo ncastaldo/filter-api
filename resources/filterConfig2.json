@@ -1,0 +1,18 @@
+{
+  "key": "OR",
+  "filters": [
+    {
+      "key": "NOT",
+      "filter": {
+        "key": "EXISTS",
+        "property": "age"
+      }
+    },
+    {
+      "key": "LT",
+      "property": "city",
+      "value": "Udine",
+      "strict": true
+    }
+  ]
+}

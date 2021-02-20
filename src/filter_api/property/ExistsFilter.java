@@ -11,11 +11,13 @@ public class ExistsFilter extends PropertyFilter {
 
 
 	@Override
-	public boolean doMatch(Map<String, String> resource) {
+	public boolean propertyMatches(Map<String, String> resource) {
 		return true;
 	}
 	
 	@Override
-	public void setStrict(boolean strict) {}
+	public ExistsFilter setStrict(boolean strict) {
+		return this;
+	}
 	
 }
