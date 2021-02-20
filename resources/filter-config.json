@@ -1,0 +1,17 @@
+{
+  "key": "AND",
+  "filters": [
+    {
+      "key": "NOT",
+      "filter": {
+        "key": "EXISTS",
+        "property": "username"
+      }
+    },
+    {
+      "key": "EQ",
+      "property": "city",
+      "value": "Udine"
+    }
+  ]
+}
