@@ -13,9 +13,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import filter_api.logical.MultiFilter;
+
 public class FilterBuilderTest {
 	
-	private JSONObject json;
+	private JSONObject[] jsons = new JSONObject[2];
 
 	private Map<String, String> user;
 
@@ -23,12 +25,18 @@ public class FilterBuilderTest {
 	public void setUp() throws Exception {
 		
 		String userDir = System.getProperty("user.dir");
-		String filePath = Paths.get(userDir, "resources", "filter-config.json").toString();
+		JSONParser jsonParser = new JSONParser();
+		FileReader reader;
+		String filePath;
 		
-		FileReader reader = new FileReader(filePath);
-	    JSONParser jsonParser = new JSONParser();
-	    this.json = (JSONObject) jsonParser.parse(reader);
+		filePath = Paths.get(userDir, "resources", "filterConfig1.json").toString();
+		reader = new FileReader(filePath);
+	    this.jsons[0] = (JSONObject) jsonParser.parse(reader);
 	    
+	    filePath = Paths.get(userDir, "resources", "filterConfig2.json").toString();
+		reader = new FileReader(filePath);
+	    this.jsons[1] = (JSONObject) jsonParser.parse(reader);
+	     
 	    
 	    this.user = new LinkedHashMap<String, String>();
 		
@@ -42,14 +50,21 @@ public class FilterBuilderTest {
 
 	@Test
 	public void testGetFilter() {
+		Filter filter; 
 		
-		Filter filter = FilterBuilder.getFilter(this.json);
+		filter = FilterBuilder.getFilter(this.jsons[0]);
 		
 		assertEquals(true, filter.matches(this.user));		
 		
 		this.user.put("city", "New York");
 	
-		assertEquals(false, filter.matches(this.user));		
+		assertEquals(false, filter.matches(this.user));	
+		
+		filter = FilterBuilder.getFilter(this.jsons[1]);
+		
+		MultiFilter multiFilter = (MultiFilter) filter;
+		
+		assertEquals(multiFilter.getFilters().length, 2);
 		
 	}
 
