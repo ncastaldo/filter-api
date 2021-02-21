@@ -1,8 +1,10 @@
 package filter_api;
 
 /**
+ * The Enumeration defines all and possible key values
+ * representing the supported Filters.
  * 
- * @author Nicola
+ * To add a new Filter, a FilterKey must be added to this Enumeration.
  *
  */
 public enum FilterKey {

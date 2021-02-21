@@ -4,7 +4,7 @@ import java.util.Map;
 
 /**
  * 
- * @author Nicola
+ * This class implements a Filter that only supports true/false values.
  *
  */
 public class BooleanFilter implements Filter {

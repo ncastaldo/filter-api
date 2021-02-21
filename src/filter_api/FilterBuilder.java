@@ -14,11 +14,19 @@ import filter_api.property.other.RegexFilter;
 
 /**
  * 
- * @author Nicola
+ * The class permits the instantiation of a Filter object
+ * from both String and JSON representations. 
  *
  */
 public class FilterBuilder {
 	
+	/**
+	 * The function accepts a String representation of a Filter
+	 * and generates it.
+	 * 
+	 * @param filterString	the Filter String representation
+	 * @return				the generated Filter
+	 */
 	public static Filter getFilter(String filterString) {
 		
 		JSONObject json;
@@ -34,6 +42,14 @@ public class FilterBuilder {
 		return FilterBuilder.getFilter(json);
 	}
 	
+	/**
+	 * The function accepts a JSON representation of a Filter
+	 * and generates it. The JSON is assumed to be correct,
+	 * with all keys present in the FilterKey Enumeration.
+	 * 
+	 * @param json	the JSONObject to parse
+	 * @return		the generated Filter
+	 */
 	public static Filter getFilter(JSONObject json) {
 		
 		FilterKey key = FilterKey.valueOf((String) json.get("key"));
