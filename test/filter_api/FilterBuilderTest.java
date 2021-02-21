@@ -54,17 +54,17 @@ public class FilterBuilderTest {
 		
 		filter = FilterBuilder.getFilter(this.jsons[0]);
 		
-		assertEquals(true, filter.matches(this.user));		
+		assertEquals(false, filter.matches(this.user));		
 		
 		
 		filter = FilterBuilder.getFilter(this.jsons[1]);
 		
 		MultiFilter multiFilter = (MultiFilter) filter;
 		
-		assertEquals(multiFilter.getFilters().length, 2);
+		assertEquals(2, multiFilter.getFilters().length);
 
 		
-		this.user.put("city", "New York");
+		this.user.put("city", "ZZZ");
 	
 		assertEquals(true, filter.matches(this.user));	
 		

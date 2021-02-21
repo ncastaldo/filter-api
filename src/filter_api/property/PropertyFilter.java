@@ -13,13 +13,16 @@ import filter_api.exceptions.PropertyMissingException;
  * It offers the possibility to toggle the strict mode,
  * which defines the behavior of the matching function in case
  * the searched property is not found in the resource.
+ * 
+ * When defining the concrete classes, care should be taken
+ * to specify the case insensitivity on the resource values.
  *
  */
 public abstract class PropertyFilter implements Filter {
 
 	protected String property;
 
-	protected boolean strict = false;	
+	protected boolean strict = true;	
 	
 	public PropertyFilter(String property) {
 		this.property = property;

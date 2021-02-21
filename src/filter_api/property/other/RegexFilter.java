@@ -6,6 +6,13 @@ import java.util.regex.Pattern;
 
 import filter_api.property.PropertyFilter;
 
+/**
+ * 
+ * The class permits the RegEx comparison between
+ * a String property and a String value. 
+ *
+ * The RegEx pattern can be passed as a String or as a Pattern.
+ */
 public class RegexFilter extends PropertyFilter {
 	
 	private Pattern pattern; 

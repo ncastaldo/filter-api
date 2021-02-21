@@ -12,7 +12,7 @@
       "key": "LT",
       "property": "city",
       "value": "Udine",
-      "strict": true
+      "strict": false
     }
   ]
 }

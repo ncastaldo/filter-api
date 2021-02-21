@@ -4,6 +4,11 @@ import java.util.Map;
 
 import filter_api.Filter;
 
+/**
+ * 
+ * The class to perform a logical OR on the input Filters.
+ *
+ */
 public class OrFilter extends MultiFilter {
 	
 	public OrFilter(Filter... filters) {

@@ -4,7 +4,7 @@ import filter_api.Filter;
 
 /**
  * 
- * The class the structure of a Filter class capable 
+ * The class defines the structure of a Filter class capable 
  * of combining the logical output of other Filters.
  *
  */

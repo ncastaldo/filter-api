@@ -4,6 +4,11 @@ import java.util.Map;
 
 import filter_api.Filter;
 
+/**
+ * 
+ * The class to perform a logical AND on the input Filters.
+ *
+ */
 public class AndFilter extends MultiFilter {
 	
 	public AndFilter(Filter... filters) {

@@ -6,6 +6,7 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import filter_api.exceptions.InvalidFilterKeyException;
 import filter_api.logical.MultiFilterFactory;
 import filter_api.logical.NotFilter;
 import filter_api.property.ExistsFilter;
@@ -105,8 +106,7 @@ public class FilterBuilder {
 			return new RegexFilter(property, value).setStrict(strict);
 		}
 		
-		/* Unreachable: all FilterKey cases MUST BE covered */
-		return null; 
+		throw new InvalidFilterKeyException("Filter key not found: " + key);
 	}
 	
 }
