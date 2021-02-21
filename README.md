@@ -17,19 +17,19 @@ The ability to determine whether or not a filter matches a given resource (where
 
 ## Support
 
-1. boolean literals: true and false
-2. logical operators which can be used to combine the results of other filters
+- boolean literals: true and false
+- logical operators which can be used to combine the results of other filters
   - AND 
   - OR
   - NOT
-3. comparison operators (care should be taken to deal with missing properties)
+- comparison operators (care should be taken to deal with missing properties)
   - property is present
   - property is equal to some value
   - property is less than some value
   - property is greater than some value
   - property matches a regular expression
-4. the ability to programmatically construct arbitrarily complex filters
-5. a string representation, including the ability to generate and parse filters from the string representation
+- the ability to programmatically construct arbitrarily complex filters
+- a string representation, including the ability to generate and parse filters from the string representation
 
 ## Implementation
 
