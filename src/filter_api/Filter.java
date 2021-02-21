@@ -15,7 +15,7 @@ public interface Filter {
 	 * The function performs the match between the resource 
 	 * and the Filter itself.
 	 * 
-	 * @param resource	the resource to filter
+	 * @param resource	the resource to filter, not null
 	 * @return true if the filter is successful, false otherwise
 	 */
 	public boolean matches(Map<String, String> resource);

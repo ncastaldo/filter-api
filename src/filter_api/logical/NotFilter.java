@@ -4,6 +4,12 @@ import java.util.Map;
 
 import filter_api.Filter;
 
+/**
+ * 
+ * The class permits the creation of a logical NOT 
+ * on the output of another Filter. 
+ *
+ */
 public class NotFilter implements Filter {
 	
 	private Filter filter;
