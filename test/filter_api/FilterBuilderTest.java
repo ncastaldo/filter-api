@@ -56,15 +56,22 @@ public class FilterBuilderTest {
 		
 		assertEquals(true, filter.matches(this.user));		
 		
-		this.user.put("city", "New York");
-	
-		assertEquals(false, filter.matches(this.user));	
 		
 		filter = FilterBuilder.getFilter(this.jsons[1]);
 		
 		MultiFilter multiFilter = (MultiFilter) filter;
 		
 		assertEquals(multiFilter.getFilters().length, 2);
+
+		
+		this.user.put("city", "New York");
+	
+		assertEquals(true, filter.matches(this.user));	
+		
+		
+		this.user.put("age", "26");
+		
+		assertEquals(false, filter.matches(this.user));
 		
 	}
 
